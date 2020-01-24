@@ -2,14 +2,20 @@
 
 <Team_Chaos_Journal>
 
-<heading>Team Chaos Journal</heading>
-<authors>Branden Barber, Brennen Nalley, Jacob Garry, Kyle Ackert, Renee Lucas</authors>
+  <heading>Team Chaos Journal</heading>
+  <authors>Branden Barber, Brennen Nalley, Jacob Garry, Kyle Ackert, Renee Lucas</authors>
 
-<entry>
-<date>January 22nd 2020</date>
-<task>Team Meeting to discuss and begin the Prospectus and URCA abstract. Talked to Dr. Wilson to gather more details on the project and its requirements.</task>
-</entry>
+  <entry>
+    <date>January 22nd, 2020</date>
+    <attendees>Branden Barber, Brennen Nalley, Jacob Garry, Kyle Ackert, Renee Lucas</attendees>
+    <task>Team Meeting to discuss and begin the Prospectus and URCA abstract. 
+          Talked to Dr. Wilson to gather more details on the project and its requirements.</task>
+  </entry>
 
-
+  <entry>
+    <date>January 24th, 2020</date>
+    <attendees>Branden Barber, Brennen Nalley, Jacob Garry, Kyle Ackert, Renee Lucas</attendees>
+    <task>Team Meeting to finalize the Prospectus and to begin to divvy up tasks for the feasibility study</task>
+  </entry>
 
 </Team_Chaos_Journal>
