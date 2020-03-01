@@ -1552,3 +1552,29 @@
 {
 	background-color: #d1dff3;
 }
+
+#instructions
+{
+	float: right;
+	width: 400px;
+	border-style: solid;
+	border-color: #5385c1;
+	border-width: 5px;
+}
+
+#playbox
+{
+	float:left;
+	width: 800px;
+	height: 200px;
+	border-style: solid;
+	border-color: #5385c1;
+	border-width: 5px;
+	text-align: center;
+}
+
+.last
+{
+	display: block;
+	clear: both;
+}
