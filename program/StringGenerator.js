@@ -1,7 +1,9 @@
 
 class StringGenerator {
 
-    
+  private var seed;
+  private var input;
+
     //constructor
     constructor(seed){
         this.seed = seed;

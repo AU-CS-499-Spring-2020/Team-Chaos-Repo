@@ -3,20 +3,23 @@
 
 class States {
 
+  private var name;
+  private var equation;
+
     //Default Constructor
-    constructor(name, equation) {
-      this._name = stateName;
-      this._equation = equation
+    constructor(stateName, equation) {
+      this.name = stateName;
+      this.equation = equation;
     }
 
     //Retrieve Name
     get name(){
-        return this._name;
+        return this.name;
     }
 
     //Retrieve Equation
     get equation(){
-        return this._equation;
+        return this.equation;
     }
 
   }
