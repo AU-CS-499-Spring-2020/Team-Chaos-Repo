@@ -2,44 +2,56 @@ class pointList
 {
   private var firstPoint;
   private var lastPoint;
+  private var numPoints
 
   public pointList()
   {
     firstPoint = lastPoint = null;
+    numPoints = 0;
   }
 
   public addPoint(state, x, y)
   {
-    var newPoint = new point(state, x, y);
-    if(firstPoint == null)
+    var newPoint = new Point(state, x, y);
+    if(numPoints == 0)
     {
       firstPoint = lastPoint = newPoint;
+      numPoints++;
     }
     else
     {
       lastPoint.nextPoint = newPoint;
       lastPoint = newPoint;
+      numPoints++;
     }
   }
 
-  private getFirstPoint()
+  private Point getFirstPoint()
   {
     return firstPoint
   }
 
-  public getLastPoint()
+  public Point getLastPoint()
   {
     return lastPoint;
   }
 
-  public getAllPoints()
+  public Point getPoint(n)
   {
-    //have a loop here that returns all points one after another
-    //or possibly have an input that parses which point you want
+    //ensure that point n exists
+    if(numPoints != 0 && n <= numPoints && n > 0)
+    {
+      currentPoint = firstPoint;
+      for(var i = 1; i < n; i++)
+      {
+        currentPoint = currentPoint.nextPoint;
+      }
+      return currentPoint;
+    }
   }
 }
 
-class point
+class Point
 {
   private var nextPoint;
   private var state;
