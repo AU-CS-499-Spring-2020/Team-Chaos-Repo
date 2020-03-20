@@ -3,13 +3,18 @@
 
 class States {
 
-  private var name;
-  private var equation;
+  name;
+  deltaX;
+  deltaY;
+  rotation;
+
 
     //Default Constructor
-    constructor(stateName, equation) {
+    constructor(stateName, deltaX, deltaY, rotation) {
       this.name = stateName;
-      this.equation = equation;
+      this.deltaX = deltaX;
+      this.deltaY = deltaY;
+      this.rotation = rotation;
     }
 
     //Retrieve Name
@@ -18,8 +23,16 @@ class States {
     }
 
     //Retrieve Equation
-    get equation(){
-        return this.equation;
+    get deltaX(){
+        return this.deltaX;
     }
+
+    get deltaY(){
+      return this.deltaY;
+  }
+
+  get rotation(){
+    return this.rotation;
+}
 
   }

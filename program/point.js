@@ -1,16 +1,52 @@
 class pointList
 {
-  private var firstPoint;
-  private var lastPoint;
-  private var numPoints
+  firstPoint;
+  lastPoint;
+  numPoints;
 
-  public pointList()
+  constructor()
   {
     firstPoint = lastPoint = null;
     numPoints = 0;
   }
 
-  public addPoint(state, x, y)
+  get firstPoint(){return this.firstPoint;}
+  get lastPoint(){return this.lastPoint;}
+  get numPoints(){return this.numPoints;}
+  set firstPoint(newFirst){this.firstPoint = newFirst;}
+  set lastPoint(newLast){this.lastPoint = newLast;}
+  set numPoints(newNum){this.numPoints = newNum;}
+
+  createPointList()
+  {
+    pointList = new pointList();
+  }
+
+  getFirstPoint()
+  {
+    return firstPoint;
+  }
+
+  getLastPoint()
+  {
+    return lastPoint;
+  }
+
+  getPoint(n)
+  {
+    currentPoint = this.firstPoint
+    //ensure that point n exists
+    if(numPoints != 0 && n <= numPoints && n > 0)
+    {
+      currentPoint = firstPoint;
+      for(var i = 1; i < n; i++)
+      {
+        currentPoint = currentPoint.nextPoint;
+      }
+      return currentPoint;
+    }
+  }
+  addPoint(state, x, y)
   {
     var newPoint = new Point(state, x, y);
     if(numPoints == 0)
@@ -25,40 +61,16 @@ class pointList
       numPoints++;
     }
   }
-
-  private Point getFirstPoint()
-  {
-    return firstPoint
-  }
-
-  public Point getLastPoint()
-  {
-    return lastPoint;
-  }
-
-  public Point getPoint(n)
-  {
-    //ensure that point n exists
-    if(numPoints != 0 && n <= numPoints && n > 0)
-    {
-      currentPoint = firstPoint;
-      for(var i = 1; i < n; i++)
-      {
-        currentPoint = currentPoint.nextPoint;
-      }
-      return currentPoint;
-    }
-  }
 }
 
 class Point
 {
-  private var nextPoint;
-  private var state;
-  private var x;
-  private var y;
+  nextPoint;
+  state;
+  x;
+  y;
 
-  public point(state, x, y)
+  constructor(state, x, y)
   {
     nextPoint = null;
     this.state = state;
@@ -66,33 +78,14 @@ class Point
     this.y = y;
   }
 
-  public setState(newState)
-  {
-    state = newState;
-  }
+  get nextPoint(){return }
+  get state(){return }
+  get x(){return }
+  get y(){return }
+  set nextPoint(newNextPoint){this.nextPoint = newNextPoint}
+  set state(newState){this.state = newState}
+  set x(newX){this.x = newX}
+  set y(newY){this.y = newY}
 
-  public setX(newX)
-  {
-    x = newX;
-  }
-
-  public setY(newY)
-  {
-    y = newY;
-  }
-
-  public getState()
-  {
-    return state;
-  }
-
-  public getX()
-  {
-    return x;
-  }
-
-  public getY()
-  {
-    return y;
-  }
+  
 }

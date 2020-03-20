@@ -1,13 +1,13 @@
 
 class StringGenerator {
 
-  private var seed;
-  private var input;
+  seed;
+  input;
 
     //constructor
     constructor(seed){
         this.seed = seed;
-        this.input= getInput(seed);
+        this.input= setInput(seed);
     }
 
     constructor(){
