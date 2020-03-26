@@ -15,6 +15,12 @@
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<!-- Backend Scripts -->
+		<script src="assets/backend/functions.js"></script>
+		<script src="assets/backend/main.js"></script>
+		<script src="assets/backend/point.js"></script>
+		<script src="assets/backend/states.js"></script>
+		<script src="assets/backend/StringGenerator.js"></script>
 	</head>
 	<body id="slimmer" class="subpage">
 
@@ -45,8 +51,19 @@
 							Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam sit amet lectus imperdiet, malesuada enim non, dapibus sem. Nunc commodo bibendum felis in commodo. Suspendisse viverra ipsum et facilisis pretium. Curabitur orci eros, finibus vitae elit ut, ultricies suscipit elit. In dignissim lobortis condimentum. Etiam rutrum porttitor facilisis. Donec a condimentum lectus, vitae accumsan purus. Donec tincidunt leo neque. Nullam vestibulum, lacus eget pulvinar scelerisque, orci purus ultrices orci, eu mattis tellus risus eget orci. Etiam feugiat bibendum nibh sit amet dignissim. Fusce et suscipit nibh, et tempor nunc. In sed quam fringilla, viverra purus eget, dictum ex. In id dolor vitae dui congue faucibus eu non urna. Suspendisse id leo ut risus cursus tempus ut vel diam. Maecenas viverra ornare dui in sodales.
 						</p>
 					</div>
-					<div id="playbox">
-						<p>content coming in future update</p>
+					<div>
+						<canvas id="canvas" width="800" height="800">
+						<script>
+							//run scripts needed to generate points
+							
+							//reference canvas object in document scructure and paint points
+							var canvas = document.getElementById("canvas");
+							var ctx = canvas.getContext("2d");
+							ctx.moveTo(000,000);
+							ctx.lineTo(800, 800);
+							ctx.stroke();
+
+						</script>
 					</div>
 				</div>
 			</section>
