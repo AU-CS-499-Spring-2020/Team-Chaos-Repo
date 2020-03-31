@@ -55,12 +55,12 @@
 						<canvas id="canvas" width="800" height="800">
 						<script>
 							//run scripts needed to generate points
-							
+							runScript();
 							//reference canvas object in document scructure and paint points
 							var canvas = document.getElementById("canvas");
 							var ctx = canvas.getContext("2d");
-							ctx.moveTo(000,000);
-							ctx.lineTo(800, 800);
+							ctx.moveTo(pointArray[0],pointArray[1]);
+							ctx.lineTo(pointArray[2], pointArray[3]);
 							ctx.stroke();
 
 						</script>

@@ -4,12 +4,6 @@ class StringGenerator {
   seed;
   input;
 
-    //constructor
-    constructor(seed){
-        this.seed = seed;
-        this.input= setInput(seed);
-    }
-
     constructor(){
         this.seed="";
         this.input="";
@@ -27,7 +21,7 @@ class StringGenerator {
 
     setInput(seed){
         this.input= seed
-        while (this.input.length()  < 1000000 && this.seed.length() > 0){
+        while (this.input.length < 1000000 && this.seed.length() > 0){
             this.input=this.input + seed;
         }
     }
