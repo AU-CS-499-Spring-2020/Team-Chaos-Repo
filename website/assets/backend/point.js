@@ -6,8 +6,8 @@ class pointList
 
   constructor()
   {
-    firstPoint = lastPoint = null;
-    numPoints = 0;
+    this.firstPoint = this.lastPoint = null;
+    this.numPoints = 0;
   }
 
   get firstPoint(){return this.firstPoint;}
@@ -46,19 +46,21 @@ class pointList
       return currentPoint;
     }
   }
+
   addPoint(state, x, y)
   {
     var newPoint = new Point(state, x, y);
-    if(numPoints == 0)
+    if(this.numPoints == 0)
     {
-      firstPoint = lastPoint = newPoint;
-      numPoints++;
+      this.firstPoint = this.lastPoint = this.newPoint;
+      this.numPoints++;
     }
     else
     {
-      lastPoint.nextPoint = newPoint;
-      lastPoint = newPoint;
-      numPoints++;
+      console.log("Jacob wasn't here")
+      this.lastPoint.nextPoint = newPoint;
+      this.lastPoint = newPoint;
+      this.numPoints++;
     }
   }
 }
@@ -72,7 +74,7 @@ class Point
 
   constructor(state, x, y)
   {
-    nextPoint = null;
+    this.nextPoint = null;
     this.state = state;
     this.x = x;
     this.y = y;
@@ -82,10 +84,14 @@ class Point
   get state(){return }
   get x(){return }
   get y(){return }
-  set nextPoint(newNextPoint){this.nextPoint = newNextPoint}
+  set nextPoint(newNextPoint)
+  {
+    //wrong attempts: 6
+    this.nextPoint = newNextPoint
+  }
   set state(newState){this.state = newState}
-  set x(newX){this.x = newX}
-  set y(newY){this.y = newY}
+  setx(newX){this.x = newX}
+  sety(newY){this.y = newY}
 
-  
+
 }

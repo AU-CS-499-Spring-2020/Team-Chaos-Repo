@@ -15,18 +15,10 @@ class StringGenerator {
         this.setInput(seed);
     }
 
-    getSeed(){
-        return this.seed;
-    }
-
     setInput(seed){
         this.input= seed
-        while (this.input.length < 1000000 && this.seed.length() > 0){
+        while (this.input.length < 1000000 && this.seed.length > 0){
             this.input=this.input + seed;
         }
-    }
-
-    getInput(){
-        return this.input;
     }
 }
