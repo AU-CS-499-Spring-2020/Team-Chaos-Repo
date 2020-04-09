@@ -52,12 +52,11 @@ class pointList
     var newPoint = new Point(state, x, y);
     if(this.numPoints == 0)
     {
-      this.firstPoint = this.lastPoint = this.newPoint;
+      this.firstPoint = this.lastPoint = newPoint;
       this.numPoints++;
     }
     else
     {
-      console.log("Jacob wasn't here")
       this.lastPoint.nextPoint = newPoint;
       this.lastPoint = newPoint;
       this.numPoints++;

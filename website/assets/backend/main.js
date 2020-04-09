@@ -4,7 +4,6 @@ function runScript()
   currentY =0;
   currentX =0;
   curState =0;
-  nextState =0;
   scale=0.5;
   seed="test"
   position =0;
@@ -13,55 +12,72 @@ function runScript()
   generator.setInput(seed.toLowerCase());
   seed = generator.input;
   PL = new pointList();
-  PL.addPoint(nextState, currentX, currentY);
+  PL.addPoint(curState, currentX, currentY);
 
   do{
-      switch (seed.charAt(position)){
+    if(seed.charAt(position).match("a") ||
+        seed.charAt(position).match("b") ||
+        seed.charAt(position).match("c") ||
+        seed.charAt(position).match("d") ||
+        seed.charAt(position).match("e") ||
+        seed.charAt(position).match("f") ||
+        seed.charAt(position).match("0") ||
+        seed.charAt(position).match("8") ||
+        seed.charAt(position).match("6"))
+  {
+    curState=0;
+    currentX= getNextX();
+    currentY= getNextY();
+  }
+  else if(seed.charAt(position).match("g") ||
+          seed.charAt(position).match("h") ||
+          seed.charAt(position).match("i") ||
+          seed.charAt(position).match("j") ||
+          seed.charAt(position).match("k") ||
+          seed.charAt(position).match("m") ||
+          seed.charAt(position).match("7") ||
+          seed.charAt(position).match("9") ||
+          seed.charAt(position).match("1"))
+  {
+    curState=1;
+    currentX= getNextX();
+    currentY= getNextY();
+  }
+  else if(seed.charAt(position).match("n") ||
+          seed.charAt(position).match("o") ||
+          seed.charAt(position).match("p") ||
+          seed.charAt(position).match("q") ||
+          seed.charAt(position).match("r") ||
+          seed.charAt(position).match("s") ||
+          seed.charAt(position).match("1") ||
+          seed.charAt(position).match("3") ||
+          seed.charAt(position).match("5"))
+  {
+    curState=2;
+    currentX= getNextX();
+    currentY= getNextY();
+  }
+  else
+  {
+    curState=3;
+    currentX= getNextX();
+    currentY= getNextY();
+  }
 
-              //state 0
-          case "a" || "b" || "c" || "d" || "e" || "f" || "0" || "8" || "6" :
-              nextState=0;
-              currentX= getNextX(currentX, currentY,nextState);
-              currentY= getNextY(currentX,currentY,nextState);
+  PL.addPoint(curState, currentX, currentY);
+  position++;
 
-              break;
-              //state 1
-          case "g" || "h" || "i" || "j" || "k" || "l" || "m" || "7" || "9" :
-              nextState=1;
-              currentX= getNextX(currentX, currentY,nextState);
-              currentY= getNextY(currentX,currentY,nextState);
-
-              break;
-              //state 2
-          case "n" || "o" || "p" || "q" || "r" || "s" || "1" || "3" || "5" :
-              nextState=2;
-              currentX= getNextX(currentX, currentY,nextState);
-              currentY= getNextY(currentX,currentY,nextState);
-
-              break;
-              //state 3 (also the default state)
-          default :
-              nextState=3;
-              currentX= getNextX(currentX, currentY,nextState);
-              currentY= getNextY(currentX,currentY,nextState);
-      }
-console.log("fuck this shit too")
-      PL.addPoint(nextState, currentX, currentY);
-
-      position++;
-      currentState=nextState;
-
-  }while (position < seed.length)
+  }while (position <= seed.length)
 }
 //-----------------------FUNCTIONS------------------------//
 
-function getNextX(currentX, currentY, state){
+function getNextX(){
 
     return scale*((currentX* Math.cos(curState.rotation))-
     (currentY*Math.sin(curState.Rotation)) +curState.deltaX);
 }
 
-function getNextY(currentX, currentY, state){
+function getNextY(){
 
     return scale*((currentX* Math.sin(curState.rotation))+
     (currentY*Math.cos(curState.Rotation)) +curState.deltaY);
