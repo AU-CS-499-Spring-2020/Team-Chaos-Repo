@@ -1,7 +1,7 @@
 //States Class
 //https://www.w3schools.com/js/js_classes.asp
 
-class States {
+class State {
 
   name;
   deltaX;
@@ -18,21 +18,24 @@ class States {
     }
 
     //Retrieve Name
-    get name(){
+    getname(){
         return this.name;
     }
 
     //Retrieve Equation
-    get deltaX(){
+    getdeltaX(){
         return this.deltaX;
     }
 
-    get deltaY(){
+    getdeltaY(){
       return this.deltaY;
   }
 
-  get rotation(){
+  getrotation(){
     return this.rotation;
 }
 
+  toString(){
+    return ("State: "+ this.name + " dX: "+this.deltaX+ " dY: "+ this.deltaY+ " Rotation: "+ this.rotation);
+  }
   }

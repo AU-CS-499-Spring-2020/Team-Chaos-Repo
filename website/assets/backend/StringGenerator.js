@@ -21,4 +21,8 @@ class StringGenerator {
             this.input=this.input + seed;
         }
     }
+
+    getInput(){
+        return this.input;
+    }
 }

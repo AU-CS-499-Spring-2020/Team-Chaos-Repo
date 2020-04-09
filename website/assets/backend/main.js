@@ -1,16 +1,30 @@
 
-function runScript()
+function runScript()//need to modify once canvas interface created specificaly seed generation
 {
   currentY =0;
   currentX =0;
   curState =0;
   scale=0.5;
-  seed="test"
+  seed="Test"
+  //seed = userInput.toLowerCase()?
   position =0;
 
+  states = 
+  [
+    new State(0, 0, 0, 0),
+    new State(1, 0, 2, 0),
+    new State(2, 2, 0, 0),
+    new State(3, 2, 2, 0),
+  ];
+//console.log (states[0].toString())
+//console.log (states[1].toString())
+//console.log (states[2].toString())
+//console.log (states[3].toString())
+
   generator = new StringGenerator();
-  generator.setInput(seed.toLowerCase());
-  seed = generator.input;
+  generator.setSeed(seed.toLowerCase());
+  seed = generator.getInput();
+  //console.log(seed.length);
   PL = new pointList();
   PL.addPoint(curState, currentX, currentY);
 
@@ -73,12 +87,12 @@ function runScript()
 
 function getNextX(){
 
-    return scale*((currentX* Math.cos(curState.rotation))-
-    (currentY*Math.sin(curState.Rotation)) +curState.deltaX);
+    return scale*((currentX* Math.cos(states[curState].getrotation()))-
+    (currentY*Math.sin(states[curState].getrotation())) +states[curState].getdeltaX());
 }
 
 function getNextY(){
 
-    return scale*((currentX* Math.sin(curState.rotation))+
-    (currentY*Math.cos(curState.Rotation)) +curState.deltaY);
+    return scale*((currentX* Math.sin(states[curState].getrotation()))+
+    (currentY*Math.cos(states[curState].getrotation())) +states[curState].getdeltaY());
 }
