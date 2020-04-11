@@ -39,7 +39,7 @@
 		<!-- Three -->
 			<section id="three" class="wrapper">
 				<div class="inner">
-					<header class="align-center">
+					<header class="align-center">a
 						<h2>Interact With Chaos Automata</h2>
 						<p>Instructions are provided in the box to the right</p>
 					</header>
@@ -51,34 +51,12 @@
 						</p>
 					</div>
 					<div>
-						<canvas id="canvas" width="800" height="800">
+						<canvas id="canvas" width="500" height="500" onclick="resize()" style="background-color:black;">
 						<script>
 							//run scripts needed to generate points
-							runScript();
+							runScript(scale=1.006, seed="oh well");
 							//reference canvas object in document scructure and paint points
-							var canvas = document.getElementById("canvas");
-							var ctx = canvas.getContext("2d");
-							//variable used to get
-							var again = true; //so true
-							var currentPoint = PL.firstPoint;
-							while(again)
-							{
-								//plot the point on canvas
-									ctx.fillRect(currentPoint.x, currentPoint.y, 1, 1);
-								//grab the next point or end if no next point
-							  if(currentPoint.nextPoint != null)
-							  {
-							    currentPoint = currentPoint.nextPoint;
-							  }
-							  else
-							  {
-							    again = false;
-							  }
-							}
-//							ctx.moveTo(pointArray[0],pointArray[1]);
-//							ctx.lineTo(pointArray[2], pointArray[3]);
-//							ctx.stroke();
-
+							useCanvas();
 						</script>
 					</div>
 				</div>

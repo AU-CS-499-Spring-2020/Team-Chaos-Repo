@@ -1,20 +1,21 @@
 
-function runScript()//need to modify once canvas interface created specificaly seed generation
+function runScript(scaleIn, seedIn)//need to modify once canvas interface created specificaly seed generation
 {
   currentY =0;
   currentX =0;
   curState =0;
-  scale=0.5;
-  seed="Test"
+  scale = scaleIn;
+  seed = seedIn;
+
   //seed = userInput.toLowerCase()?
   position =0;
 
-  states = 
+  states =
   [
-    new State(0, 0, 0, 0),
-    new State(1, 0, 2, 0),
-    new State(2, 2, 0, 0),
-    new State(3, 2, 2, 0),
+    new State(0, 0, 0, 0.1),
+    new State(1, 0, 2, 0.1),
+    new State(2, 2, 0, 0.1),
+    new State(3, 2, 2, 0.1),
   ];
 //console.log (states[0].toString())
 //console.log (states[1].toString())
@@ -95,4 +96,41 @@ function getNextY(){
 
     return scale*((currentX* Math.sin(states[curState].getrotation()))+
     (currentY*Math.cos(states[curState].getrotation())) +states[curState].getdeltaY());
+}
+
+function useCanvas()
+{
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  //variable used to get
+  var again = true; //so true
+  var currentPoint = PL.firstPoint;
+  while(again)
+  {
+    //plot the point on canvas
+    switch(currentPoint.state)
+    {
+      case 0:
+        ctx.fillStyle = "#ff0000";
+        break;
+      case 1:
+        ctx.fillStyle = "#00ff00";
+        break;
+      case 2:
+        ctx.fillStyle = "#0000ff";
+        break;
+      default:
+        ctx.fillStyle = "#ffff00";
+    }
+    ctx.fillRect(currentPoint.x + 250, currentPoint.y + 250, 1.5, 1.5);
+    //grab the next point or end if no next point
+    if(currentPoint.nextPoint != null)
+    {
+      currentPoint = currentPoint.nextPoint;
+    }
+    else
+    {
+      again = false;
+    }
+  }
 }
