@@ -39,24 +39,32 @@
 		<!-- Three -->
 			<section id="three" class="wrapper">
 				<div class="inner">
-					<header class="align-center">a
+					<header class="align-center">
 						<h2>Interact With Chaos Automata</h2>
-						<p>Instructions are provided in the box to the right</p>
+						<h3>Feel free to input any text into the seed box, and a size in the scale box. A good size to start with is 1.006.</h3>
 					</header>
-					<div id="instructions">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu diam nec dolor aliquet iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus hendrerit urna ut arcu tincidunt, at feugiat dui rhoncus. Nullam convallis in nisl sed sodales. Sed eu felis sed lectus commodo placerat et vel sem. Phasellus vel orci dictum, faucibus libero ac, cursus eros. Pellentesque faucibus ullamcorper elit, sit amet mollis eros semper nec. Aenean pulvinar ullamcorper felis at tristique. Donec a enim ullamcorper, gravida ante id, cursus justo. Vestibulum placerat tincidunt ipsum vitae congue.
-
-							Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam sit amet lectus imperdiet, malesuada enim non, dapibus sem. Nunc commodo bibendum felis in commodo. Suspendisse viverra ipsum et facilisis pretium. Curabitur orci eros, finibus vitae elit ut, ultricies suscipit elit. In dignissim lobortis condimentum. Etiam rutrum porttitor facilisis. Donec a condimentum lectus, vitae accumsan purus. Donec tincidunt leo neque. Nullam vestibulum, lacus eget pulvinar scelerisque, orci purus ultrices orci, eu mattis tellus risus eget orci. Etiam feugiat bibendum nibh sit amet dignissim. Fusce et suscipit nibh, et tempor nunc. In sed quam fringilla, viverra purus eget, dictum ex. In id dolor vitae dui congue faucibus eu non urna. Suspendisse id leo ut risus cursus tempus ut vel diam. Maecenas viverra ornare dui in sodales.
-						</p>
+					<div id="input">
+						<form>
+							<label for="fSeed">Seed:</label>
+							<input type="text" id="fSeed" name="fSeed" value="example" style="width: 300px;"/><br>
+							<label for="fScale">Scale:</label>
+							<input type="number" id="fScale" name="fScale" value="1.006"/><br><br>
+							<input type="button" value="Generate Fractal" onclick="submitScript()">
+						</form>
 					</div>
 					<div>
-						<canvas id="canvas" width="500" height="500" onclick="resize()" style="background-color:black;">
+						<canvas id="canvas" width="1000" height="1000" style="background-color:black;">
 						<script>
 							//run scripts needed to generate points
-							runScript(scale=1.006, seed="oh well");
-							//reference canvas object in document scructure and paint points
-							useCanvas();
+
+
+							function submitScript(){
+								var seed = document.getElementById("fSeed");
+								var scale = document.getElementById("fScale");
+								var scaleInt = parseFloat(scale.value);
+								runScript(scaleInt, seed.value);
+								useCanvas();
+							}
 						</script>
 					</div>
 				</div>

@@ -102,6 +102,8 @@ function useCanvas()
 {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#000000";
+  ctx.fillRect(0, 0, 1000, 1000);
   //variable used to get
   var again = true; //so true
   var currentPoint = PL.firstPoint;
@@ -122,7 +124,7 @@ function useCanvas()
       default:
         ctx.fillStyle = "#ffff00";
     }
-    ctx.fillRect(currentPoint.x + 250, currentPoint.y + 250, 1.5, 1.5);
+    ctx.fillRect(currentPoint.x + 500, currentPoint.y + 500, 1.5, 1.5);
     //grab the next point or end if no next point
     if(currentPoint.nextPoint != null)
     {
