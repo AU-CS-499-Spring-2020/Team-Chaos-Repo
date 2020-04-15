@@ -6,16 +6,29 @@ function runScript(scaleIn, seedIn)//need to modify once canvas interface create
   curState =0;
   scale = scaleIn;
   seed = seedIn;
+  toggle = true;
 
   //seed = userInput.toLowerCase()?
   position =0;
 
+  if(toggle)
+  {
+    threeState();
+  }
+  else
+    fourState();
+  
+
+}
+//-----------------------FUNCTIONS------------------------//
+
+function threeState()
+{
   states =
   [
-    new State(0, 0, 0, 0.1),
-    new State(1, 0, 2, 0.1),
-    new State(2, 2, 0, 0.1),
-    new State(3, 2, 2, 0.1),
+    new State(0, 0, 0, 0),
+    new State(1, 1, 2, 0),
+    new State(2, 2, 0, 0),
   ];
 //console.log (states[0].toString())
 //console.log (states[1].toString())
@@ -29,14 +42,6 @@ function runScript(scaleIn, seedIn)//need to modify once canvas interface create
   PL = new pointList();
   PL.addPoint(curState, currentX, currentY);
 
-  threeState();
-
-
-}
-//-----------------------FUNCTIONS------------------------//
-
-function threeState()
-{
   do{
     if(seed.charAt(position).match("a") ||
         seed.charAt(position).match("b") ||
@@ -49,7 +54,7 @@ function threeState()
         seed.charAt(position).match("6") ||
         seed.charAt(position).match("g") ||
         seed.charAt(position).match("j") ||
-        seed.charAt(position).match("7"));
+        seed.charAt(position).match("7"))
   {
     curState=0;
     currentX= getNextX();
@@ -66,7 +71,7 @@ function threeState()
           seed.charAt(position).match("5") ||
           seed.charAt(position).match("h") ||
           seed.charAt(position).match("k") ||
-          seed.charAt(position).match("9"));
+          seed.charAt(position).match("9"))
   {
     curState==1;
     currentX= getNextX();
@@ -87,6 +92,25 @@ function threeState()
 
 function fourState()
 {
+  states =
+  [
+    new State(0, 0, 0, 0.1),
+    new State(1, 0, 2, 0.1),
+    new State(2, 2, 0, 0.1),
+    new State(3, 2, 2, 0.1),
+  ];
+//console.log (states[0].toString())
+//console.log (states[1].toString())
+//console.log (states[2].toString())
+//console.log (states[3].toString())
+
+  generator = new StringGenerator();
+  generator.setSeed(seed.toLowerCase());
+  seed = generator.getInput();
+  //console.log(seed.length);
+  PL = new pointList();
+  PL.addPoint(curState, currentX, currentY);
+
   do{
     if(seed.charAt(position).match("a") ||
         seed.charAt(position).match("b") ||
