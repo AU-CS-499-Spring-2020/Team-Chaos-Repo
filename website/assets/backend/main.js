@@ -6,7 +6,7 @@ function runScript(scaleIn, seedIn)//need to modify once canvas interface create
   curState =0;
   scale = scaleIn;
   seed = seedIn;
-  toggle = true;
+  toggle = false;
 
   //seed = userInput.toLowerCase()?
   position =0;
@@ -204,9 +204,9 @@ function getExtremePoints()
       maxX = currentPoint.x;
     }
     //get maximum Y
-    if(currentPoint.Y > maxY)
+    if(currentPoint.y > maxY)
     {
-      maxY = currentPoint.Y;
+      maxY = currentPoint.y;
     }
     //see if we are done (so done)
     if(currentPoint.nextPoint != null)
@@ -250,7 +250,7 @@ function useCanvas(medX, medY)
       default://yellow
         ctx.fillStyle = "#ffff00";
     }
-    ctx.fillRect(currentPoint.x + (500 - medX), -currentPoint.y + (500 + medY), 1, 1);
+    ctx.fillRect(currentPoint.x + (500)- medX, -currentPoint.y + (500)+ medY, 1, 1);
     //grab the next point or end if no next point
     if(currentPoint.nextPoint != null)
     {
