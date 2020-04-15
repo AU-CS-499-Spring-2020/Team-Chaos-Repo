@@ -10,11 +10,12 @@ class State {
 
 
     //Default Constructor
-    constructor(stateName, deltaX, deltaY, rotation) {
+    constructor(stateName, deltaX, deltaY, rotation, scale) {
       this.name = stateName;
       this.deltaX = deltaX;
       this.deltaY = deltaY;
       this.rotation = rotation;
+      this.scale = scale;
     }
 
     //Retrieve Name
@@ -34,6 +35,9 @@ class State {
   getrotation(){
     return this.rotation;
 }
+  getscale(){
+    return this.scale;
+  }
 
   toString(){
     return ("State: "+ this.name + " dX: "+this.deltaX+ " dY: "+ this.deltaY+ " Rotation: "+ this.rotation);

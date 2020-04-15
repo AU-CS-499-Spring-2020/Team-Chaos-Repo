@@ -26,9 +26,9 @@ function threeState()
 {
   states =
   [
-    new State(0, 0, 0, 0),
-    new State(1, 1, 2, 0),
-    new State(2, 2, 0, 0),
+    new State(0, 0, 0, 0, scale),
+    new State(1, 100, 200, 0, scale),
+    new State(2, 200, 0, 0, scale)
   ];
 //console.log (states[0].toString())
 //console.log (states[1].toString())
@@ -73,7 +73,7 @@ function threeState()
           seed.charAt(position).match("k") ||
           seed.charAt(position).match("9"))
   {
-    curState==1;
+    curState=1;
     currentX= getNextX();
     currentY= getNextY();
   }
@@ -94,10 +94,10 @@ function fourState()
 {
   states =
   [
-    new State(0, 0, 0, 0.1),
-    new State(1, 0, 2, 0.1),
-    new State(2, 2, 0, 0.1),
-    new State(3, 2, 2, 0.1),
+    new State(0, 0, 0, 0.1, scale),
+    new State(1, 0, 200, -0.3, scale),
+    new State(2, 200, 0, 0.5, scale),
+    new State(3, 200, 200, -0.1, scale)
   ];
 //console.log (states[0].toString())
 //console.log (states[1].toString())
@@ -169,17 +169,62 @@ function fourState()
 
 function getNextX(){
 
-    return scale*((currentX* Math.cos(states[curState].getrotation()))-
+    return states[curState].scale*((currentX* Math.cos(states[curState].getrotation()))-
     (currentY*Math.sin(states[curState].getrotation())) +states[curState].getdeltaX());
 }
 
 function getNextY(){
 
-    return scale*((currentX* Math.sin(states[curState].getrotation()))+
+    return states[curState].scale*((currentX* Math.sin(states[curState].getrotation()))+
     (currentY*Math.cos(states[curState].getrotation())) +states[curState].getdeltaY());
 }
 
-function useCanvas()
+function getExtremePoints()
+{
+  var currentPoint = PL.firstPoint
+  var again = true; //so true
+  var minX, minY, maxX, maxY;
+  minX = minY = maxX = maxY = 0;
+
+  while(again)
+  {
+    //get minimum x
+    if(currentPoint.x < minX)
+    {
+      minX = currentPoint.x;
+    }
+    //get minimum Y
+    if(currentPoint.y < minY)
+    {
+      minY = currentPoint.Y;
+    }
+    //get maximum X
+    if(currentPoint.x > maxX)
+    {
+      maxX = currentPoint.x;
+    }
+    //get maximum Y
+    if(currentPoint.Y > maxY)
+    {
+      maxY = currentPoint.Y;
+    }
+    //see if we are done (so done)
+    if(currentPoint.nextPoint != null)
+    {
+      currentPoint = currentPoint.nextPoint;
+    }
+    else
+    {
+      again = false;
+    }
+  }
+  var medX, medY;
+  medX = (minX + maxX) / 2;
+  medY = (minY + maxY) / 2;
+  useCanvas(medX, medY);
+}
+
+function useCanvas(medX, medY)
 {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
@@ -193,19 +238,19 @@ function useCanvas()
     //plot the point on canvas
     switch(currentPoint.state)
     {
-      case 0:
+      case 0://red
         ctx.fillStyle = "#ff0000";
         break;
-      case 1:
+      case 1://blue
         ctx.fillStyle = "#00ff00";
         break;
-      case 2:
+      case 2://green
         ctx.fillStyle = "#0000ff";
         break;
-      default:
+      default://yellow
         ctx.fillStyle = "#ffff00";
     }
-    ctx.fillRect(currentPoint.x + 500, currentPoint.y + 500, 1.5, 1.5);
+    ctx.fillRect(currentPoint.x + (500 - medX), -currentPoint.y + (500 + medY), 1, 1);
     //grab the next point or end if no next point
     if(currentPoint.nextPoint != null)
     {
