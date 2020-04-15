@@ -29,6 +29,64 @@ function runScript(scaleIn, seedIn)//need to modify once canvas interface create
   PL = new pointList();
   PL.addPoint(curState, currentX, currentY);
 
+  threeState();
+
+
+}
+//-----------------------FUNCTIONS------------------------//
+
+function threeState()
+{
+  do{
+    if(seed.charAt(position).match("a") ||
+        seed.charAt(position).match("b") ||
+        seed.charAt(position).match("c") ||
+        seed.charAt(position).match("d") ||
+        seed.charAt(position).match("e") ||
+        seed.charAt(position).match("f") ||
+        seed.charAt(position).match("0") ||
+        seed.charAt(position).match("8") ||
+        seed.charAt(position).match("6") ||
+        seed.charAt(position).match("g") ||
+        seed.charAt(position).match("j") ||
+        seed.charAt(position).match("7"));
+  {
+    curState=0;
+    currentX= getNextX();
+    currentY= getNextY();
+  }
+  else if(seed.charAt(position).match("n") ||
+          seed.charAt(position).match("o") ||
+          seed.charAt(position).match("p") ||
+          seed.charAt(position).match("q") ||
+          seed.charAt(position).match("r") ||
+          seed.charAt(position).match("s") ||
+          seed.charAt(position).match("1") ||
+          seed.charAt(position).match("3") ||
+          seed.charAt(position).match("5") ||
+          seed.charAt(position).match("h") ||
+          seed.charAt(position).match("k") ||
+          seed.charAt(position).match("9"));
+  {
+    curState==1;
+    currentX= getNextX();
+    currentY= getNextY();
+  }
+  else
+  {
+    curState=2;
+    currentX= getNextX();
+    currentY= getNextY();
+  }
+
+  PL.addPoint(curState, currentX, currentY);
+  position++;
+
+  }while (position <= seed.length)
+}
+
+function fourState()
+{
   do{
     if(seed.charAt(position).match("a") ||
         seed.charAt(position).match("b") ||
@@ -84,7 +142,6 @@ function runScript(scaleIn, seedIn)//need to modify once canvas interface create
 
   }while (position <= seed.length)
 }
-//-----------------------FUNCTIONS------------------------//
 
 function getNextX(){
 
