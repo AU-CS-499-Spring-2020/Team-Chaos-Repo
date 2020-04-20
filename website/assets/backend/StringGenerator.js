@@ -16,9 +16,14 @@ class StringGenerator {
     }
 
     setInput(seed){
-        this.input= seed
-        while (this.input.length < 1000000 && this.seed.length > 0){
-            this.input=this.input + seed;
+        if(seed.length>0)
+        {
+            this.input= seed.charAt(Math.floor(Math.random()*seed.length));
+        }
+
+        while (this.input.length < 1000000 && this.seed.length > 0)
+        {
+            this.input=this.input + seed.charAt(Math.floor(Math.random()*seed.length));
         }
     }
 
