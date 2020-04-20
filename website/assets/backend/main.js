@@ -1,15 +1,15 @@
 
-function runScript(seedIn, scaleIn, rot1, rot2, rot3, rot4, toggle)//need to modify once canvas interface created specificaly seed generation
+function runScript(seedIn, scaleIn, rot1, rot2, rot3, rot4, toggle)
 {
   currentY =0;
   currentX =0;
   curState =0;
   scale = scaleIn;
   seed = seedIn;
-  rotation1 = rot1;
-  rotation2 = rot2;
-  rotation3 = rot3;
-  rotation4 = rot4;
+  rotation1 = parseFloat(rot1);
+  rotation2 = parseFloat(rot2);
+  rotation3 = parseFloat(rot3);
+  rotation4 = parseFloat(rot4);
 
   //seed = userInput.toLowerCase()?
   position =0;
