@@ -1,12 +1,15 @@
 
-function runScript(scaleIn, seedIn)//need to modify once canvas interface created specificaly seed generation
+function runScript(seedIn, scaleIn, rot1, rot2, rot3, rot4, toggle)//need to modify once canvas interface created specificaly seed generation
 {
   currentY =0;
   currentX =0;
   curState =0;
   scale = scaleIn;
   seed = seedIn;
-  toggle = false;
+  rotation1 = rot1;
+  rotation2 = rot2;
+  rotation3 = rot3;
+  rotation4 = rot4;
 
   //seed = userInput.toLowerCase()?
   position =0;
@@ -17,7 +20,7 @@ function runScript(scaleIn, seedIn)//need to modify once canvas interface create
   }
   else
     fourState();
-  
+
 
 }
 //-----------------------FUNCTIONS------------------------//
@@ -26,9 +29,9 @@ function threeState()
 {
   states =
   [
-    new State(0, 0, 0, 0, scale),
-    new State(1, 100, 200, 0, scale),
-    new State(2, 200, 0, 0, scale)
+    new State(0, 0, 0, rotation1, scale),
+    new State(1, 100, 200, rotation2, scale),
+    new State(2, 200, 0, rotation3, scale)
   ];
 //console.log (states[0].toString())
 //console.log (states[1].toString())
@@ -94,10 +97,10 @@ function fourState()
 {
   states =
   [
-    new State(0, 0, 0, 0.1, scale),
-    new State(1, 0, 200, -0.3, scale),
-    new State(2, 200, 0, 0.5, scale),
-    new State(3, 200, 200, -0.1, scale)
+    new State(0, 0, 0, rotation1, scale),
+    new State(1, 0, 200, rotation2, scale),
+    new State(2, 200, 0, rotation3, scale),
+    new State(3, 200, 200, rotation4, scale)
   ];
 //console.log (states[0].toString())
 //console.log (states[1].toString())

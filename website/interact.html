@@ -46,10 +46,123 @@
 					<div id="input">
 						<form>
 							<label for="fSeed">Seed:</label>
-							<input type="text" id="fSeed" name="fSeed" value="example" style="width: 300px;"/><br>
-							<label for="fScale">Scale:</label>
-							<input type="text" id="fScale" name="fScale" value="1.006" style="width: 300px;"/><br><br>
-							<input type="button" value="Generate Fractal" onclick="submitScript()">
+							<input type="text" id="fSeed" name="fSeed" value="example" style="width: 300px;"/>
+							<label for="scaleSelector">Scale:</label>
+							<select id="scaleSelector" style="width:300px;">
+								<option value="0.3">0.3</option>
+								<option value="0.35">0.35</option>
+								<option value="0.4">0.4</option>
+								<option value="0.45">0.45</option>
+								<option value="0.5" selected>0.5</option>
+								<option value="0.55">0.55</option>
+								<option value="0.6">0.6</option>
+								<option value="0.65">0.65</option>
+								<option value="0.7">0.7</option>
+								<option value="0.75">0.75</option>
+								<option value="0.8">0.8</option>
+								<option value="0.85">0.85</option>
+								<option value="0.9">0.9</option>
+								<option value="0.95">0.95</option>
+								<option value="1">1.0</option>
+							</select>
+							<label for="rot1Selector">Rotation 1:</label>
+							<select id=rot1Selector style="width:300px;">
+								<option value="-0.50">-0.50</option>
+								<option value="-0.45">-0.45</option>
+								<option value="-0.40">-0.40</option>
+								<option value="-0.35">-0.35</option>
+								<option value="-0.30">-0.30</option>
+								<option value="-0.25">-0.25</option>
+								<option value="-0.20">-0.20</option>
+								<option value="-0.15">-0.15</option>
+								<option value="-0.10">-0.10</option>
+								<option value="-0.05">-0.05</option>
+								<option value="0.00" selected>0.00</option>
+								<option value="0.05">0.05</option>
+								<option value="0.10">0.10</option>
+								<option value="0.15">0.15</option>
+								<option value="0.20">0.20</option>
+								<option value="0.25">0.25</option>
+								<option value="0.30">0.30</option>
+								<option value="0.35">0.35</option>
+								<option value="0.40">0.40</option>
+								<option value="0.45">0.45</option>
+								<option value="0.50">0.50</option>
+							</select>
+							<label for="rot2Selector">Rotation 2:</label>
+							<select id=rot2Selector style="width:300px;">
+								<option value="-0.50">-0.50</option>
+								<option value="-0.45">-0.45</option>
+								<option value="-0.40">-0.40</option>
+								<option value="-0.35">-0.35</option>
+								<option value="-0.30">-0.30</option>
+								<option value="-0.25">-0.25</option>
+								<option value="-0.20">-0.20</option>
+								<option value="-0.15">-0.15</option>
+								<option value="-0.10">-0.10</option>
+								<option value="-0.05">-0.05</option>
+								<option value="0.00" selected>0.00</option>
+								<option value="0.05">0.05</option>
+								<option value="0.10">0.10</option>
+								<option value="0.15">0.15</option>
+								<option value="0.20">0.20</option>
+								<option value="0.25">0.25</option>
+								<option value="0.30">0.30</option>
+								<option value="0.35">0.35</option>
+								<option value="0.40">0.40</option>
+								<option value="0.45">0.45</option>
+								<option value="0.50">0.50</option>
+							</select>
+							<label for="rot3Selector">Rotation 3:</label>
+							<select id=rot3Selector style="width:300px;">
+								<option value="-0.50">-0.50</option>
+								<option value="-0.45">-0.45</option>
+								<option value="-0.40">-0.40</option>
+								<option value="-0.35">-0.35</option>
+								<option value="-0.30">-0.30</option>
+								<option value="-0.25">-0.25</option>
+								<option value="-0.20">-0.20</option>
+								<option value="-0.15">-0.15</option>
+								<option value="-0.10">-0.10</option>
+								<option value="-0.05">-0.05</option>
+								<option value="0.00" selected>0.00</option>
+								<option value="0.05">0.05</option>
+								<option value="0.10">0.10</option>
+								<option value="0.15">0.15</option>
+								<option value="0.20">0.20</option>
+								<option value="0.25">0.25</option>
+								<option value="0.30">0.30</option>
+								<option value="0.35">0.35</option>
+								<option value="0.40">0.40</option>
+								<option value="0.45">0.45</option>
+								<option value="0.50">0.50</option>
+							</select>
+							<label for="rot4Selector">Rotation 4:</label>
+							<select id=rot4Selector style="width:300px;">
+								<option value="-0.50">-0.50</option>
+								<option value="-0.45">-0.45</option>
+								<option value="-0.40">-0.40</option>
+								<option value="-0.35">-0.35</option>
+								<option value="-0.30">-0.30</option>
+								<option value="-0.25">-0.25</option>
+								<option value="-0.20">-0.20</option>
+								<option value="-0.15">-0.15</option>
+								<option value="-0.10">-0.10</option>
+								<option value="-0.05">-0.05</option>
+								<option value="0.00" selected>0.00</option>
+								<option value="0.05">0.05</option>
+								<option value="0.10">0.10</option>
+								<option value="0.15">0.15</option>
+								<option value="0.20">0.20</option>
+								<option value="0.25">0.25</option>
+								<option value="0.30">0.30</option>
+								<option value="0.35">0.35</option>
+								<option value="0.40">0.40</option>
+								<option value="0.45">0.45</option>
+								<option value="0.50">0.50</option>
+							</select><br>
+							<input type="button" value="Generate Triangle Fractal" onclick="submitScript3()">
+							<input type="button" value="Generate Square Fractal" onclick="submitScript4()">
 						</form>
 					</div>
 					<div>
@@ -57,12 +170,39 @@
 						<script>
 							//run scripts needed to generate points
 
-
-							function submitScript(){
+							function submitScript3(){
+								//get elements into variables
 								var seed = document.getElementById("fSeed");
-								var scale = document.getElementById("fScale");
-								var scaleInt = parseFloat(scale.value);
-								runScript(scaleInt, seed.value);
+								var scale = document.getElementById("scaleSelector");
+								var rot1 = document.getElementById("rot1Selector");
+								var rot2 = document.getElementById("rot2Selector");
+								var rot3 = document.getElementById("rot3Selector");
+								var rot4 = document.getElementById("rot4Selector");
+								//parse input into floats for input in script
+								scale = parseFloat(scale.value);
+								rot1 = parseFloat(rot1.value);
+								rot2 = parseFloat(rot2.value);
+								rot3 = parseFloat(rot3.value);
+								rot4 = parseFloat(rot4.value);
+								runScript(seed.value, scale, rot1, rot2, rot3, rot4, true);
+								getExtremePoints();
+							}
+
+							function submitScript4(){
+								//get elements into variables
+								var seed = document.getElementById("fSeed");
+								var scale = document.getElementById("scaleSelector");
+								var rot1 = document.getElementById("rot1Selector");
+								var rot2 = document.getElementById("rot2Selector");
+								var rot3 = document.getElementById("rot3Selector");
+								var rot4 = document.getElementById("rot4Selector");
+								//parse input into floats for input in script
+								scale = parseFloat(scale.value);
+								rot1 = parseFloat(rot1.value);
+								rot2 = parseFloat(rot2.value);
+								rot3 = parseFloat(rot3.value);
+								rot4 = parseFloat(rot4.value);
+								runScript(seed.value, scale, rot1, rot2, rot3, rot4, false);
 								getExtremePoints();
 							}
 						</script>
